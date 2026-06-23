@@ -96,6 +96,28 @@ end
 
 ## Usage
 
+### Executable Scripts
+
+Recent RubyGems versions can run a gem executable with `gem exec`, so RubyShell scripts can be executable directly:
+
+```ruby
+#!/usr/bin/env -S RUBYOPT=-W0 gem exec --silent rubyshell exec
+
+sh do
+  puts date
+  puts pwd
+end
+```
+
+Then make the script executable and run it:
+
+```bash
+chmod +x my_script
+./my_script
+```
+
+`RUBYOPT=-W0` and `--silent` keep RubyGems warnings and extra output out of the script output.
+
 ### Basic Commands
 
 ```ruby
