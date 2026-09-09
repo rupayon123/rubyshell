@@ -109,11 +109,9 @@ RSpec.describe RubyShell::Debugger do
 
       context "when a failed debug command is rescued" do
         before do
-          begin
-            execute_failed_debug_command
-          rescue RubyShell::CommandError
-            nil
-          end
+          execute_failed_debug_command
+        rescue RubyShell::CommandError
+          nil
         end
 
         it "logs failed command exit code before reraising" do
